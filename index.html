@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibhuvan Krishna | Quant Developer</title>
+  <meta name="description" content="Konatala Vibhuvan Krishna — Quant Developer &amp; Deep Learning Engineer. IIT (BHU) Varanasi. Real-time options pipelines, backtesting engines, and agentic research systems." />
+  <meta name="author" content="Konatala Vibhuvan Krishna" />
+  <link rel="canonical" href="https://vibhuvankrishna.github.io/" />
+  <meta property="og:title" content="Vibhuvan Krishna | Quant Developer" />
+  <meta property="og:description" content="Quant infrastructure, options pricing, and deep learning at IIT (BHU)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vibhuvankrishna.github.io/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2304060c'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia' font-size='28' fill='%2300e6c3'%3EVK%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #04060c;
+      --panel: rgba(255, 255, 255, 0.03);
+      --panel-border: rgba(120, 200, 255, 0.12);
+      --ink: #e8eef7;
+      --muted: #8a97ac;
+      --faint: #5d6a80;
+      --accent: #00e6c3;
+      --accent-2: #4d8dff;
+      --accent-3: #b07bff;
+      --glow: rgba(0, 230, 195, 0.45);
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+      --sans: "Space Grotesk", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(120,180,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(120,180,255,0.045) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+    }
+    .orb { position: fixed; border-radius: 50%; filter: blur(90px); opacity: 0.5; z-index: 0; pointer-events: none; }
+    .orb-1 { width: 480px; height: 480px; background: radial-gradient(circle, rgba(0,230,195,0.28), transparent 70%); top: -120px; right: -80px; }
+    .orb-2 { width: 520px; height: 520px; background: radial-gradient(circle, rgba(77,141,255,0.20), transparent 70%); top: 480px; left: -160px; }
+    .orb-3 { width: 420px; height: 420px; background: radial-gradient(circle, rgba(176,123,255,0.16), transparent 70%); bottom: 160px; right: -120px; }
+
+    .wrap { position: relative; z-index: 2; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    section { position: relative; z-index: 2; padding: 78px 0; }
+
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(4,6,12,0.62);
+      border-bottom: 1px solid var(--panel-border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-family: var(--mono); font-weight: 700; font-size: 1.15rem; letter-spacing: 1px; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 26px; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      font-family: var(--mono); font-size: 0.82rem; color: var(--accent);
+      border: 1px solid var(--accent); padding: 7px 16px; border-radius: 8px; transition: all 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent); color: #04060c !important; box-shadow: 0 0 24px var(--glow); }
+    .nav-toggle {
+      display: none; background: none; border: 1px solid var(--panel-border);
+      color: var(--ink); width: 42px; height: 42px; border-radius: 10px; font-size: 1.3rem;
+    }
+
+    .hero { padding-top: 88px; padding-bottom: 28px; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--panel-border);
+      padding: 6px 14px; border-radius: 100px; background: var(--panel); margin-bottom: 26px;
+    }
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 5.4rem); font-weight: 700; line-height: 1.02;
+      letter-spacing: -1px; margin-bottom: 18px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2) 55%, var(--accent-3));
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero .tag { max-width: 740px; margin: 0 auto 12px; font-size: clamp(1rem, 2.4vw, 1.28rem); font-weight: 500; }
+    .hero .sub { max-width: 640px; margin: 0 auto 32px; color: var(--muted); }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      font-family: var(--mono); font-size: 0.88rem; font-weight: 500; text-decoration: none;
+      padding: 13px 24px; border-radius: 10px; transition: all 0.22s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary { background: var(--accent); color: #04060c; }
+    .btn-primary:hover { box-shadow: 0 0 30px var(--glow); transform: translateY(-2px); }
+    .btn-ghost { border: 1px solid var(--panel-border); color: var(--ink); background: var(--panel); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 64px; }
+    .stat {
+      border: 1px solid var(--panel-border); background: var(--panel); border-radius: 14px;
+      padding: 22px 16px; text-align: center; backdrop-filter: blur(6px);
+    }
+    .stat .num {
+      font-family: var(--mono); font-size: clamp(1.35rem, 3.2vw, 2rem); font-weight: 700;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat .lbl { font-size: 0.76rem; color: var(--muted); margin-top: 6px; }
+
+    .sec-head { text-align: center; margin-bottom: 42px; }
+    .sec-tag { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .sec-head h2 { font-size: clamp(1.7rem, 4vw, 2.55rem); font-weight: 700; letter-spacing: -0.5px; }
+    .sec-head p { color: var(--muted); margin-top: 10px; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+    .skill-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .skill {
+      border: 1px solid var(--panel-border); background: var(--panel); border-radius: 16px;
+      padding: 22px 20px; transition: all 0.25s;
+    }
+    .skill:hover { transform: translateY(-3px); border-color: rgba(0,230,195,0.28); }
+    .skill .ico { font-size: 1.45rem; color: var(--accent); margin-bottom: 10px; }
+    .skill h4 { font-size: 1.02rem; margin-bottom: 8px; }
+    .skill p { color: var(--muted); font-size: 0.86rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 28px; }
+    .tag {
+      font-family: var(--mono); font-size: 0.78rem; color: var(--muted);
+      border: 1px solid var(--panel-border); background: var(--panel);
+      padding: 7px 12px; border-radius: 8px; transition: all 0.2s;
+    }
+    .tag:hover { color: var(--accent); border-color: var(--accent); }
+
+    .timeline { display: flex; flex-direction: column; gap: 20px; }
+    .exp {
+      border: 1px solid var(--panel-border); background: var(--panel); border-radius: 18px;
+      padding: 28px; transition: all 0.25s;
+    }
+    .exp:hover { border-color: rgba(120,200,255,0.22); }
+    .exp.featured {
+      border: 1px solid rgba(0,230,195,0.45);
+      background: linear-gradient(160deg, rgba(0,230,195,0.07), rgba(77,141,255,0.04) 60%, transparent);
+      box-shadow: 0 0 50px rgba(0,230,195,0.10);
+    }
+    .exp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 6px; }
+    .exp .role { font-size: 1.28rem; font-weight: 700; }
+    .exp .company { color: var(--accent); font-family: var(--mono); font-size: 0.9rem; margin-top: 2px; }
+    .exp .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); white-space: nowrap; display: inline-flex; align-items: center; gap: 7px; }
+    .badge-new {
+      font-family: var(--mono); font-size: 0.68rem; letter-spacing: 1.4px; text-transform: uppercase;
+      color: #04060c; background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      padding: 4px 9px; border-radius: 6px; font-weight: 700; margin-left: 8px;
+    }
+    .exp .blurb { color: var(--muted); font-size: 0.94rem; margin: 4px 0 14px; }
+    .exp ul, .proj ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .exp li { position: relative; padding-left: 22px; color: #c4cedd; font-size: 0.92rem; }
+    .exp li::before {
+      content: ""; position: absolute; left: 2px; top: 9px; width: 7px; height: 7px;
+      border-radius: 2px; background: var(--accent); transform: rotate(45deg); box-shadow: 0 0 8px var(--glow);
+    }
+    .exp li strong, .proj li strong { color: var(--ink); font-weight: 600; }
+
+    .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .proj {
+      border: 1px solid var(--panel-border); background: var(--panel); border-radius: 16px;
+      padding: 24px; transition: all 0.25s; display: flex; flex-direction: column;
+    }
+    .proj:hover { transform: translateY(-4px); border-color: rgba(120,200,255,0.22); background: rgba(255,255,255,0.035); }
+    .proj.wide { grid-column: 1 / -1; }
+    .proj-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+    .proj h4 { font-size: 1.15rem; }
+    .proj .pdate { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); white-space: nowrap; }
+    .proj .sup { font-size: 0.82rem; color: var(--faint); font-style: italic; margin-bottom: 12px; }
+    .proj li { position: relative; padding-left: 18px; color: #b9c3d2; font-size: 0.88rem; }
+    .proj li::before { content: "›"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
+    .result {
+      margin-top: 12px; font-family: var(--mono); font-size: 0.78rem; color: var(--accent);
+      border-top: 1px solid var(--panel-border); padding-top: 12px;
+    }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+    .mini-card {
+      border: 1px solid var(--panel-border); background: var(--panel); border-radius: 14px;
+      padding: 18px; display: flex; gap: 14px; align-items: flex-start; margin-bottom: 12px; transition: all 0.2s;
+    }
+    .mini-card:hover { border-color: rgba(120,200,255,0.22); }
+    .mini-card .mi { font-size: 1.35rem; color: var(--accent); margin-top: 2px; }
+    .mini-card h5 { font-size: 0.98rem; margin-bottom: 4px; }
+    .mini-card p { color: var(--muted); font-size: 0.86rem; }
+    .mini-card .date { font-family: var(--mono); font-size: 0.74rem; color: var(--faint); }
+
+    footer { border-top: 1px solid var(--panel-border); padding: 40px 0; text-align: center; position: relative; z-index: 2; }
+    footer .fcontact { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+    footer a, footer span { color: var(--muted); text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 7px; }
+    footer a:hover { color: var(--accent); }
+    footer .copy { color: var(--faint); font-size: 0.8rem; font-family: var(--mono); }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .skill-grid, .proj-grid, .split { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+      .nav-links {
+        display: none; position: absolute; top: 64px; left: 0; right: 0;
+        flex-direction: column; gap: 0; background: rgba(4,6,12,0.96);
+        border-bottom: 1px solid var(--panel-border); padding: 10px 24px 18px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; width: 100%; }
+      .proj.wide { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top">VK<span>.</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu"><i class="ri-menu-line"></i></button>
+      <div class="nav-links" id="navLinks">
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="Konatala_Vibhuvan_Krishna_Resume.pdf" class="nav-cta">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero wrap" id="top">
+    <div class="eyebrow"><span class="dot"></span> Quant Developer · IIT (BHU)</div>
+    <h1>Konatala <span class="grad">Vibhuvan Krishna</span></h1>
+    <p class="tag">Building real-time options infrastructure, backtesting engines, and agentic research systems.</p>
+    <p class="sub">IDD Bio-Medical Engineering @ IIT (BHU), Varanasi · Quant development · Data engineering · Deep learning.</p>
+    <div class="hero-btns">
+      <a href="#experience" class="btn btn-primary"><i class="ri-flashlight-line"></i> Latest work</a>
+      <a href="Konatala_Vibhuvan_Krishna_Resume.pdf" class="btn btn-ghost"><i class="ri-download-line"></i> Download resume</a>
+      <a href="https://github.com/vibhuvankrishna" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ri-github-line"></i> GitHub</a>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><div class="num">8 → 0.9 ms</div><div class="lbl">IV solver p50 after Numba</div></div>
+      <div class="stat reveal"><div class="num">76%</div><div class="lbl">6B-row backtest speedup</div></div>
+      <div class="stat reveal"><div class="num">Top 25</div><div class="lbl">Gappy AI · 3,000 teams</div></div>
+      <div class="stat reveal"><div class="num">5th</div><div class="lbl">Quant League Q4 2024</div></div>
+    </div>
+  </header>
+
+  <section id="skills" class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">Stack</div>
+      <h2>What I work with</h2>
+      <p>Languages, quant methods, data systems, and production tooling from the current resume.</p>
+    </div>
+    <div class="skill-grid">
+      <div class="skill reveal">
+        <div class="ico"><i class="ri-code-s-slash-line"></i></div>
+        <h4>Languages</h4>
+        <p>Python, C++, SQL, Bash</p>
+      </div>
+      <div class="skill reveal">
+        <div class="ico"><i class="ri-stock-line"></i></div>
+        <h4>Quant</h4>
+        <p>BSM / Black-76, IV / Greeks, OMS, backtesting (Polars / NumPy / Numba), walk-forward, Monte Carlo</p>
+      </div>
+      <div class="skill reveal">
+        <div class="ico"><i class="ri-database-2-line"></i></div>
+        <h4>Data</h4>
+        <p>Kafka / Redpanda, Delta Lake, DuckDB, Arrow, RocksDB, Pandera, Pandas</p>
+      </div>
+      <div class="skill reveal">
+        <div class="ico"><i class="ri-server-line"></i></div>
+        <h4>Production</h4>
+        <p>FastAPI, asyncio, Linux, Git, Prometheus / Grafana, MLflow</p>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Python</span><span class="tag">C++</span><span class="tag">FastAPI</span>
+      <span class="tag">Kafka / Redpanda</span><span class="tag">Delta Lake</span><span class="tag">DuckDB</span>
+      <span class="tag">Polars</span><span class="tag">Numba</span><span class="tag">RocksDB</span>
+      <span class="tag">VectorBT</span><span class="tag">QuantStats</span><span class="tag">MLflow</span>
+      <span class="tag">CUDA / cuDNN</span><span class="tag">Playwright</span><span class="tag">asyncio</span>
+    </div>
+  </section>
+
+  <section id="experience" class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">Internships</div>
+      <h2>Where I've worked</h2>
+      <p>Production quant systems at trading firms — from live options ingest to OMS and backtests.</p>
+    </div>
+    <div class="timeline">
+      <div class="exp featured reveal">
+        <div class="exp-head">
+          <div>
+            <h4 class="role">Quant Developer <span class="badge-new">Latest</span></h4>
+            <div class="company">QuantSingularity · Data Engineering Pipeline</div>
+          </div>
+          <div class="when"><i class="ri-calendar-line"></i> May 2026 – Aug 2026</div>
+        </div>
+        <p class="blurb">Real-time options pipeline, pricing engine, and bitemporal lakehouse for live Nifty, Bank Nifty, and Crude chains.</p>
+        <ul>
+          <li>Engineered a reconnect-safe <strong>options pipeline</strong> ingesting live Nifty, BNifty, and Crude chains.</li>
+          <li>Built an IV / Greeks engine via <strong>BSM + Black-76</strong> with vol smile/skew analytics. Cut <strong>p50 8 → 0.9 ms</strong> with Numba + Newton-Raphson, <strong>p99 25 → 4.5 ms</strong> via bisection fallback and memoized prior state.</li>
+          <li>Architected a <strong>Kafka / Redpanda</strong> bus with time-based retention and MurmurHash3 deduplication before persist.</li>
+          <li>Designed <strong>Delta Lake</strong> with bitemporality: <strong>p50 1.1 s → 170 ms</strong> via Hive pruning + DuckDB, <strong>p99 3.4 s → 390 ms</strong> via micro-batch compaction + Bloom filters, disk <strong>−38%</strong> via zstd / dict encoding.</li>
+          <li>Shipped a look-ahead-bias guarded <strong>FastAPI</strong> service with Apache Arrow IPC responses and RocksDB cache.</li>
+          <li>Pandera schema validation with financial checks such as put-call parity; Prometheus / Grafana + MLflow health tracking.</li>
+        </ul>
+      </div>
+
+      <div class="exp reveal">
+        <div class="exp-head">
+          <div>
+            <h4 class="role">Quant Developer</h4>
+            <div class="company">SWTS Trading Solutions · OMS &amp; Backtesting Engines</div>
+          </div>
+          <div class="when"><i class="ri-calendar-line"></i> Apr 2025 – July 2025</div>
+        </div>
+        <p class="blurb">Client-facing OMS work and a vectorized options backtester used on multi-billion-row datasets.</p>
+        <ul>
+          <li>Worked directly with clients to validate strategies and build their <strong>Order Management Systems (OMS)</strong>.</li>
+          <li>Shipped an OOP-based options backtester (custom entry / exit, plug-in datasets) — <strong>18 metrics</strong> via Seaborn.</li>
+          <li>Cut <strong>6B-row</strong> backtest time <strong>26 → 6 min (~76%)</strong> by replacing Pandas with Polars / NumPy vectorization.</li>
+          <li>Feature engineering, XAI, walk-forward optimisation, and Monte Carlo simulations on strategy.</li>
+          <li>Stood up an Ubuntu server, deployed and maintained production code, and updated OMS over time.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">Projects</div>
+      <h2>Selected work</h2>
+      <p>Agentic research, systems design, C++ risk, and a published-track DL paper.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj wide reveal">
+        <div class="proj-top">
+          <h4>Alpha Assembly Line</h4>
+          <span class="pdate">Aug 2026 – Present</span>
+        </div>
+        <div class="sup">Agentic strategy research environment</div>
+        <ul>
+          <li>Orchestration around <strong>VectorBT</strong> and <strong>QuantStats</strong> with a waiting queue, OHLCV / regime standardization → {buy, hold, sell}, async batches, slippage and broker fees.</li>
+          <li>Hermes agent picks top performers, diagnoses what worked vs failed, then adds rules or combines strategies into the next generation.</li>
+          <li>Fitness is a weighted Sharpe, ROI, and drawdown score; walk-forward testing prunes in-sample overfit.</li>
+          <li>FastAPI + web dashboard for queue status, leaderboard, strategy lineage, and KPIs.</li>
+        </ul>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-top">
+          <h4>Tally Load Balancer</h4>
+          <span class="pdate">Jun 2026 – July 2026</span>
+        </div>
+        <div class="sup">System design hackathon · from-scratch asyncio L4</div>
+        <ul>
+          <li>asyncio Layer-4 TCP balancer (accept → port-route → dial → 64 KiB full-duplex relay) with data, control, health, and dashboard planes — no nginx / HAProxy.</li>
+          <li>Least-conn, round-robin, IP hash. WebSocket health (2s beat / 5s timeout). JSON control API so YAML changes apply with no restart.</li>
+          <li>pytest e2e: 80-way concurrency, RR histogram, mid-run reconfig, failover / rejoin, limits, graceful stop.</li>
+        </ul>
+        <div class="result">Cleared DSA, project, and interview stages.</div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-top">
+          <h4>Gappy AI</h4>
+          <span class="pdate">Jun 2026 – July 2026</span>
+        </div>
+        <div class="sup">AI learning companion for YouTube</div>
+        <ul>
+          <li>Chrome extension + FastAPI second brain: tracks what you watch and already know, then skips known parts.</li>
+          <li>RAG over saved transcripts and summaries to find overlap and skip.</li>
+        </ul>
+        <div class="result">Top 25 of 3,000 nationwide · shoutout for creativity.</div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-top">
+          <h4>Monte Carlo Portfolio Risk Analyzer</h4>
+          <span class="pdate">Feb 2025 – Mar 2025</span>
+        </div>
+        <div class="sup">C++ GBM engine</div>
+        <ul>
+          <li>C++ GBM Monte Carlo using <strong>std::mt19937</strong> Gaussian shocks and optional antithetic variates.</li>
+          <li>Yahoo historical-return pipeline estimating μ, σ, and the covariance matrix from adjusted closes.</li>
+          <li>Correlated portfolio shocks via Cholesky; historical, parametric, and MC VaR / CVaR; Kelly / mean-variance sizing.</li>
+        </ul>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-top">
+          <h4>DL for Drug Property Prediction</h4>
+          <span class="pdate">Jun 2025 – Present</span>
+        </div>
+        <div class="sup">Co-authored IEEE paper · Dr. A. R. Jac Fredo, IITBHU</div>
+        <ul>
+          <li>168-model sweep (CNN / RNN / LSTM × 7 descriptors × 8 datasets). Per-task winners: <strong>+0.20 R²</strong> vs a single-architecture baseline.</li>
+          <li>Best RNN combo: <strong>RMSE 0.18 / MAE 0.11 / R² 0.81</strong> vs baseline RMSE 0.42 / R² 0.56.</li>
+          <li>WSL 2 + CUDA cuDNN, XLA-safe execution, MLflow + DagsHub.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="wrap">
+    <div class="split">
+      <div>
+        <div class="sec-head" style="text-align:left; margin-bottom:22px;">
+          <div class="sec-tag">Leadership</div>
+          <h2 style="font-size:1.65rem;">Positions of responsibility</h2>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mi"><i class="ri-line-chart-line"></i></div>
+          <div>
+            <h5>Lead · The Quant Club IIT BHU</h5>
+            <p>Custom indicators, QuantConnect Quant League. 16th (Q2), 6th (Q3), 5th (Q4) globally in 2024.</p>
+            <span class="date">Apr 2024 – Jan 2025</span>
+          </div>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mi"><i class="ri-team-line"></i></div>
+          <div>
+            <h5>Lead · Tech Team, Research Club IIT BHU</h5>
+            <p>Workshops, research-cell databases, and scraping IIT sites with Playwright / Selenium.</p>
+            <span class="date">Jun 2025 – Present</span>
+          </div>
+        </div>
+        <div class="sec-head" style="text-align:left; margin:28px 0 22px;">
+          <div class="sec-tag">Honours</div>
+          <h2 style="font-size:1.65rem;">Achievements</h2>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mi"><i class="ri-award-line"></i></div>
+          <div><h5>A+ in Machine Learning &amp; Deep Learning</h5><p>Exceptional performance in the official IIT BHU course.</p></div>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mi"><i class="ri-medal-line"></i></div>
+          <div><h5>National olympiads</h5><p>Science Talent Search Olympiad and Math Talent Search Olympiad.</p></div>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mi"><i class="ri-mic-line"></i></div>
+          <div><h5>1st · Visakhapatnam District Elocution</h5><p>Andhra Literature Club.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-head" style="text-align:left; margin-bottom:22px;">
+          <div class="sec-tag">Academics</div>
+          <h2 style="font-size:1.65rem;">Education</h2>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mi"><i class="ri-graduation-cap-line"></i></div>
+          <div>
+            <h5>IDD — Bio-Medical Engineering</h5>
+            <p>IIT (BHU), Varanasi · CGPA 8.35</p>
+            <span class="date">2023 – 2027</span>
+          </div>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mi"><i class="ri-book-open-line"></i></div>
+          <div>
+            <h5>AP-BIE (XII)</h5>
+            <p>FIITJEE Junior College · 90.00%</p>
+            <span class="date">2022</span>
+          </div>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mi"><i class="ri-school-line"></i></div>
+          <div>
+            <h5>AP-SSC (X)</h5>
+            <p>Sri Chaitanya School · 95.00%</p>
+            <span class="date">2020</span>
+          </div>
+        </div>
+        <div class="mini-card reveal">
+          <div class="mi"><i class="ri-mail-send-line"></i></div>
+          <div>
+            <h5>Get in touch</h5>
+            <p><a href="mailto:vibhuvankrishna@gmail.com">vibhuvankrishna@gmail.com</a><br />+91 9573834923</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="fcontact">
+        <a href="mailto:vibhuvankrishna@gmail.com"><i class="ri-mail-send-line"></i> vibhuvankrishna@gmail.com</a>
+        <a href="https://github.com/vibhuvankrishna" target="_blank" rel="noopener"><i class="ri-github-line"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/vibhuvan-krishna-konatala-38b564315/" target="_blank" rel="noopener"><i class="ri-linkedin-box-line"></i> LinkedIn</a>
+        <a href="Konatala_Vibhuvan_Krishna_Resume.pdf"><i class="ri-file-pdf-line"></i> Resume</a>
+      </div>
+      <div class="copy">© 2026 Konatala Vibhuvan Krishna · IIT (BHU)</div>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("show"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+    const toggle = document.getElementById("navToggle");
+    const links = document.getElementById("navLinks");
+    toggle.addEventListener("click", () => links.classList.toggle("open"));
+    links.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => links.classList.remove("open")));
+  </script>
+</body>
+</html>
