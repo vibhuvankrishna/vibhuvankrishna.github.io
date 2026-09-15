@@ -1,12 +1,17 @@
 # vibhuvankrishna.github.io
 
-Personal site for **Konatala Vibhuvan Krishna** — Quant Developer & Deep Learning Engineer at IIT (BHU).
+Personal site for **Konatala Vibhuvan Krishna** — Independent trader · Quant Researcher & Developer · IIT (BHU).
 
-Live (after GitHub Pages is enabled): **https://vibhuvankrishna.github.io**
+Live: **https://vibhuvankrishna.github.io**
+
+## Resumes
+
+| File | Lens |
+|------|------|
+| [`Quant_Researcher_Resume.pdf`](Quant_Researcher_Resume.pdf) | Quant research / alpha / regimes |
+| [`Quant_Developer_Resume.pdf`](Quant_Developer_Resume.pdf) | Quant systems / pipelines / OMS |
 
 ## Local preview
-
-Open `index.html` in a browser, or from this folder:
 
 ```bash
 python -m http.server 8080
@@ -16,4 +21,4 @@ Then visit http://localhost:8080
 
 ## Deploy
 
-This folder is the GitHub Pages source. After approval it should be pushed to a public repo named `vibhuvankrishna.github.io` on the `vibhuvankrishna` account, with Pages set to **Deploy from a branch → main → / (root)**.
+GitHub Pages: **Deploy from branch → main → / (root)**.
