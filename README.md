@@ -1,6 +1,6 @@
 # vibhuvankrishna.github.io
 
-Personal site for **Konatala Vibhuvan Krishna** — Independent trader · Quant Researcher & Developer · IIT (BHU).
+Personal site for **Konatala Vibhuvan Krishna** — Systematic independent trader, experienced with quant firms · Quant Researcher & Developer · IIT (BHU).
 
 Live: **https://vibhuvankrishna.github.io**
 
