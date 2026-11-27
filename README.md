@@ -8,7 +8,7 @@ Live: **https://vibhuvankrishna.github.io**
 
 | File | Lens |
 |------|------|
-| [`Quant_Researcher_Resume.pdf`](Quant_Researcher_Resume.pdf) | Quant research / alpha / regimes |
+| [`Vibhuvan_Krishna_IIT_BHU_QuantResearch_Resume.pdf`](Vibhuvan_Krishna_IIT_BHU_QuantResearch_Resume.pdf) | Quant research / alpha / regimes |
 | [`Quant_Developer_Resume.pdf`](Quant_Developer_Resume.pdf) | Quant systems / pipelines / OMS |
 
 ## Local preview
